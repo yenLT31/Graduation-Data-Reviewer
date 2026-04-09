@@ -20,6 +20,7 @@ h1,h2,h3,.font-headline{font-family:'Be Vietnam Pro',sans-serif;}
 .cell-ok{background-color:rgba(34,197,94,0.1);color:#15803d;font-weight:700;border-radius:9999px;padding:2px 12px;display:inline-flex;align-items:center;justify-content:center;min-width:60px;font-size:10px;text-transform:uppercase;}
 .cell-err{background-color:#fee2e2;color:#b91c1c;font-weight:700;border-radius:9999px;padding:2px 12px;display:inline-flex;align-items:center;justify-content:center;min-width:60px;font-size:10px;text-transform:uppercase;}
 .cell-warn{background-color:#fef3c7;color:#92400e;font-weight:700;border-radius:9999px;padding:2px 12px;display:inline-flex;align-items:center;justify-content:center;min-width:60px;font-size:10px;text-transform:uppercase;}
+.cell-info{background-color:#dbeafe;color:#1d4ed8;font-weight:700;border-radius:9999px;padding:2px 12px;display:inline-flex;align-items:center;justify-content:center;min-width:60px;font-size:10px;text-transform:uppercase;}
 .upload-card.loaded{border-color:#1A237E;background-color:#E8EAF6;}
 .upload-card.error{border-color:#B71C1C;background-color:#FFEBEE;}
 /* Search result styles */
@@ -61,7 +62,7 @@ h1,h2,h3,.font-headline{font-family:'Be Vietnam Pro',sans-serif;}
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
   <div class="bg-white p-6 rounded-3xl border-2 border-dashed border-outline-variant hover:border-primary transition-all cursor-pointer relative upload-card" id="card_cancheck">
-    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onchange="handleFile(event,'cancheck')" type="file"/>
+    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onclick="this.value=''" onchange="handleFile(event,'cancheck')" type="file"/>
     <div class="space-y-4">
       <div class="w-12 h-12 bg-primary-container rounded-2xl flex items-center justify-center text-primary"><span class="material-symbols-outlined text-2xl">description</span></div>
       <div><h4 class="font-bold text-on-surface">File Can Check</h4><p class="text-[10px] text-on-surface-variant mt-1">DS SV đủ điều kiện TN từ ĐT</p></div>
@@ -70,7 +71,7 @@ h1,h2,h3,.font-headline{font-family:'Be Vietnam Pro',sans-serif;}
     </div>
   </div>
   <div class="bg-white p-6 rounded-3xl border-2 border-dashed border-outline-variant hover:border-primary transition-all cursor-pointer relative upload-card" id="card_currstudent">
-    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onchange="handleFile(event,'currstudent')" type="file"/>
+    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onclick="this.value=''" onchange="handleFile(event,'currstudent')" type="file"/>
     <div class="space-y-4">
       <div class="w-12 h-12 bg-primary-container rounded-2xl flex items-center justify-center text-primary"><span class="material-symbols-outlined text-2xl">person_pin</span></div>
       <div><h4 class="font-bold text-on-surface">CurriculumStudent</h4><p class="text-[10px] text-on-surface-variant mt-1">Mapping SV — Khung CT</p></div>
@@ -79,7 +80,7 @@ h1,h2,h3,.font-headline{font-family:'Be Vietnam Pro',sans-serif;}
     </div>
   </div>
   <div class="bg-white p-6 rounded-3xl border-2 border-dashed border-outline-variant hover:border-primary transition-all cursor-pointer relative upload-card" id="card_currsubject">
-    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onchange="handleFile(event,'currsubject')" type="file"/>
+    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onclick="this.value=''" onchange="handleFile(event,'currsubject')" type="file"/>
     <div class="space-y-4">
       <div class="w-12 h-12 bg-primary-container rounded-2xl flex items-center justify-center text-primary"><span class="material-symbols-outlined text-2xl">menu_book</span></div>
       <div><h4 class="font-bold text-on-surface">CurriculumSubject</h4><p class="text-[10px] text-on-surface-variant mt-1">DS môn theo khung CT</p></div>
@@ -88,7 +89,7 @@ h1,h2,h3,.font-headline{font-family:'Be Vietnam Pro',sans-serif;}
     </div>
   </div>
   <div class="bg-white p-6 rounded-3xl border-2 border-dashed border-outline-variant hover:border-primary transition-all cursor-pointer relative upload-card" id="card_mark">
-    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onchange="handleFile(event,'mark')" type="file"/>
+    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onclick="this.value=''" onchange="handleFile(event,'mark')" type="file"/>
     <div class="space-y-4">
       <div class="w-12 h-12 bg-primary-container rounded-2xl flex items-center justify-center text-primary"><span class="material-symbols-outlined text-2xl">analytics</span></div>
       <div><h4 class="font-bold text-on-surface">File Mark (FAP)</h4><p class="text-[10px] text-on-surface-variant mt-1">Dữ liệu điểm từ hệ thống FAP</p></div>
@@ -97,7 +98,7 @@ h1,h2,h3,.font-headline{font-family:'Be Vietnam Pro',sans-serif;}
     </div>
   </div>
   <div class="bg-white p-6 rounded-3xl border-2 border-dashed border-outline-variant hover:border-primary transition-all cursor-pointer relative upload-card" id="card_replacecode">
-    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onchange="handleFile(event,'replacecode')" type="file"/>
+    <input accept=".xlsx,.xls" class="absolute inset-0 opacity-0 cursor-pointer" onclick="this.value=''" onchange="handleFile(event,'replacecode')" type="file"/>
     <div class="space-y-4">
       <div class="w-12 h-12 bg-primary-container rounded-2xl flex items-center justify-center text-primary"><span class="material-symbols-outlined text-2xl">swap_horiz</span></div>
       <div><h4 class="font-bold text-on-surface">ReplaceCode</h4><p class="text-[10px] text-on-surface-variant mt-1">Bảng danh mục môn thay thế</p></div>
@@ -317,7 +318,7 @@ h+=`<tr onmouseover="this.style.background='#EEF0FC'" onmouseout="this.style.bac
 this.cols.forEach(c=>{
 let v=row[c]!==undefined?row[c]:'',innerCls='';
 const isCheck=(c===this.checkCol),isStt=(c==='Stt');
-if(isCheck){const sv=String(v);if(this.okValues.some(x=>sv.startsWith(x)))innerCls='cell-ok';else if(sv.includes('Lệch')||sv==='Not ok')innerCls='cell-err';else if(sv.includes('Thiếu')||sv.includes('Không'))innerCls='cell-warn';else if(sv!=='')innerCls='cell-err';}
+if(isCheck){const sv=String(v);if(this.okValues.some(x=>sv.startsWith(x)))innerCls='cell-ok';else if(sv.includes('kỹ thuật'))innerCls='cell-info';else if(sv.includes('Lệch')||sv==='Not ok')innerCls='cell-err';else if(sv.includes('Thiếu')||sv.includes('Không'))innerCls='cell-warn';else if(sv!=='')innerCls='cell-err';}
 const isBold=(c==='FullName'||c==='RollNumber');
 const tdStyle=isStt
   ?'padding:9px 4px;border-bottom:1px solid #F0F1F5;vertical-align:middle;white-space:nowrap;text-align:center;color:#74777F;width:52px;max-width:52px;font-size:11px'
@@ -539,7 +540,13 @@ if(sc.toUpperCase().startsWith('OJ')){
   res.push({Stt:stt,RollNumber:roll,FullName:name,CurriculumCode:cc,SubjectCode:sc,Mark_Dt:mDtOjt,Mark_Fap:mFapOjt,Status:stOjt,Check:check});
 }
 else if(isGDQP_OJ_LAB(sc)){check=(isPassStatus(String(mDt))&&isPassStatus(status))?'OK':'Not ok';res.push({Stt:stt,RollNumber:roll,FullName:name,CurriculumCode:cc,SubjectCode:sc,Mark_Dt:mDt,Mark_Fap:mFap,Status:status,Check:check});}
-else{let nD=cleanNum(mDt),nF=cleanNum(mFap);if(nD!==null&&nF!==null)check=roundTo(nD,1)===roundTo(nF,1)?'OK':'Lệch điểm';else if(mDt===''&&mFap==='')check='Thiếu dữ liệu';else if(isPassStatus(String(mDt)))check=isPassStatus(status)?'OK':'Not ok';else check='Lệch điểm';
+else{let nD=cleanNum(mDt),nF=cleanNum(mFap);
+if(nD!==null&&nF!==null){
+  if(roundTo(nD,1)===roundTo(nF,1))check='OK';
+  else check=isPassStatus(status)?'Lỗi kỹ thuật':'Lệch điểm';
+}else if(mDt===''&&mFap==='')check='Thiếu dữ liệu';
+else if(isPassStatus(String(mDt)))check=isPassStatus(status)?'OK':'Not ok';
+else check=isPassStatus(status)?'Lỗi kỹ thuật':'Lệch điểm';
 res.push({Stt:stt,RollNumber:roll,FullName:name,CurriculumCode:cc,SubjectCode:sc,Mark_Dt:mDt,Mark_Fap:mFap,Status:status,Check:check});}
 });
 // VOV groups
@@ -803,7 +810,7 @@ function renderMT(data,cols){
 if(!data||!data.length)return`<p class="text-xs text-on-surface-variant/50 italic py-2">Không có dữ liệu</p>`;
 let h=`<div style="overflow-x:auto;max-height:300px;overflow-y:auto"><table class="stu-mini-table"><thead><tr>`;
 cols.forEach(c=>{h+=`<th>${c}</th>`;});h+=`</tr></thead><tbody>`;
-data.forEach(row=>{h+=`<tr>`;cols.forEach(c=>{let v=row[c]!==undefined?row[c]:'',cls='';if(c==='Check'){const sv=String(v);if(sv==='OK')cls='color:#15803d;font-weight:700';else if(sv.includes('Lệch')||sv==='Not ok')cls='color:#b91c1c;font-weight:700;background:#fee2e2';else if(sv)cls='color:#92400e;font-weight:700;background:#fef3c7';}h+=`<td style="${cls}">${v}</td>`;});h+=`</tr>`;});
+data.forEach(row=>{h+=`<tr>`;cols.forEach(c=>{let v=row[c]!==undefined?row[c]:'',cls='';if(c==='Check'){const sv=String(v);if(sv==='OK')cls='color:#15803d;font-weight:700';else if(sv.includes('kỹ thuật'))cls='color:#1d4ed8;font-weight:700;background:#dbeafe';else if(sv.includes('Lệch')||sv==='Not ok')cls='color:#b91c1c;font-weight:700;background:#fee2e2';else if(sv)cls='color:#92400e;font-weight:700;background:#fef3c7';}h+=`<td style="${cls}">${v}</td>`;});h+=`</tr>`;});
 h+=`</tbody></table></div>`;return h;}
 
 function clearSearch(){
