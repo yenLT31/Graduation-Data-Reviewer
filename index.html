@@ -827,6 +827,14 @@ function downloadResult(){const wb=XLSX.utils.book_new(),ts=getFullTS();
 const addSh=(name,title,data,nc)=>{const hdr=[[title],['Thời gian: '+ts],[]];const ws=XLSX.utils.aoa_to_sheet(hdr);XLSX.utils.sheet_add_json(ws,data,{origin:'A4'});ws['!merges']=[{s:{r:0,c:0},e:{r:0,c:nc-1}},{s:{r:1,c:0},e:{r:1,c:nc-1}}];const cols=[];for(let i=0;i<nc;i++)cols.push({wch:18});ws['!cols']=cols;XLSX.utils.book_append_sheet(wb,ws,name);};
 addSh('Check Mark','BÁO CÁO CHECK MARK',RESULT.checkMark,9);addSh('Check Replace','BÁO CÁO CHECK REPLACE',RESULT.checkReplace,11);addSh('Check GPA','BÁO CÁO CHECK GPA',RESULT.checkGPA,6);
 const s=RESULT.summary,sd=[['TỔNG HỢP KẾT QUẢ RÀ SOÁT'],['Thời gian: '+ts],[],['Nội dung','Giá trị'],['1. SV đã kiểm tra',s.totalStudents],['2. Tổng môn kiểm tra',s.totalSubjectsChecked],['3. Môn lệch/Not ok',s.notOkCount],['4. Còn lệch sau Replace',s.stillNotOkAfterReplace],['5. SV đạt VOV',s.vovPassCount+'/'+s.totalStudents],['6. SV đạt OJT',s.ojtPassCount+'/'+s.totalStudents],['7. SV đạt GDQP',s.gdqpPassCount+'/'+s.totalStudents],['8. SV lệch GPA',s.gpaMismatch],[]];
+// Top môn lệch
+if(s.topErrs&&s.topErrs.length){sd.push(['TOP MÔN LỆCH NHIỀU NHẤT']);sd.push(['Mã môn','Số lượng']);s.topErrs.forEach(e=>sd.push([e.code,e.count]));sd.push([]);}
+// SV chưa đạt GDQP
+if(s.gdqpNotPassCount>0&&s.gdqpDetails){sd.push(['SV CHƯA ĐẠT GDQP ('+s.gdqpNotPassCount+')']);sd.push(['RollNumber','Môn']);Object.entries(s.gdqpDetails).forEach(([roll,subs])=>sd.push([roll,subs.join(', ')]));sd.push([]);}
+// SV chưa đạt VOV
+if(s.vovNotPassCount>0&&s.vovDetails){sd.push(['SV CHƯA ĐẠT VOV ('+s.vovNotPassCount+')']);sd.push(['RollNumber','Nhóm còn thiếu']);Object.entries(s.vovDetails).forEach(([roll,groups])=>sd.push([roll,groups.join(', ')]));sd.push([]);}
+// SV chưa đạt OJT
+if(s.ojtNotPassCount>0&&s.ojtDetails){sd.push(['SV CHƯA ĐẠT OJT ('+s.ojtNotPassCount+')']);sd.push(['RollNumber','Ghi chú']);Object.entries(s.ojtDetails).forEach(([roll,note])=>sd.push([roll,note]));sd.push([]);}
 const ws4=XLSX.utils.aoa_to_sheet(sd);ws4['!cols']=[{wch:45},{wch:30}];XLSX.utils.book_append_sheet(wb,ws4,'Summary');
 XLSX.writeFile(wb,`${getTS()}-Result_XetTN.xlsx`);}
 function downloadMarkDT(){const wb=XLSX.utils.book_new(),ts=getFullTS();const hdr=[['MARK_DT — Điểm từ ĐT'],['Thời gian: '+ts],[`Tổng: ${RESULT.markDT.marks.length} bản ghi, ${RESULT.markDT.students.length} SV`],[]];const ws=XLSX.utils.aoa_to_sheet(hdr);XLSX.utils.sheet_add_json(ws,RESULT.markDT.marks,{origin:'A5'});ws['!cols']=[{wch:16},{wch:28},{wch:16},{wch:14}];XLSX.utils.book_append_sheet(wb,ws,'Mark_DT');XLSX.writeFile(wb,`${getTS()}-Mark_DT.xlsx`);}
